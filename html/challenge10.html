@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Number game</title>
+    <style>
+        .bglight {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>Guess a Number</h1> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 bglight mt-5">
+                <div class="mb-3">
+                    <label for="enterNumber" class="form-label">enter number</label>
+                    <input type="text" class="form-control" id="enterNumber" placeholder="enter number">
+                </div>
+                <div class="">
+                    <button class="btn btn-primary mb-3" onclick="checkNumber()">Submit</button>
+                </div>
+                <div class="">
+                    <h4 id="score">20</h4>
+                    <p id="numberlg" class="d-none">entered number is larger than secrate number</p>
+                    <p id="numbersm" class="d-none">entered number is smaller than secrate number</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const secretNumber = Math.trunc(Math.random() * 20);
+        //const secretNumber = 12 ;
+        var score = 20;
+
+
+        const checkNumber = function () {
+            var yourguess = document.getElementById('enterNumber').value;
+            const numlg = document.getElementById("numberlg");
+            const numsm = document.getElementById("numbersm");
+             
+                do {
+                    score--;
+                    if (secretNumber == yourguess) {
+                        console.log("you are right");
+                        document.querySelector(".bglight").style.backgroundColor = "#45af2b47";
+                        //--score;
+                    }
+                    else if (secretNumber < yourguess) {
+                        numlg.classList.remove("d-none");
+                        numsm.classList.add("d-none");
+                        //score--;
+                        document.getElementById('score').innerHTML = score;
+                        document.querySelector(".bglight").style.backgroundColor = "#ccc";
+                    }
+                    else {
+                        numsm.classList.remove("d-none");
+                        numlg.classList.add("d-none");
+                        //score--;
+                        document.getElementById('score').innerHTML = score;
+                        document.querySelector(".bglight").style.backgroundColor = "#ccc";
+                    }
+                }
+                while (score < 0);
+        
+            }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
