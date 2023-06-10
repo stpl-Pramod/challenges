@@ -10,32 +10,12 @@
   <body>
     <h1>Hello</h1>
 <script>
-    const Mark = {
-        fullname: "Mark Miller",
-        mass: 78,
-        height: 1.69,
-        calcBMI: function () {
-            return this.BMI = this.mass / (this.height * this.height);
-        }
-    }
-    const John = {
-        fullname: "John Smith",
-        mass: 92,
-        height: 1.95,
-        calcBMI: function () {
-            return  this.BMI = this.mass / (this.height * this.height);
-        }
-    }
+ calcAverage = (a,b,c) => (a+b+c)/3;
+ const dolphins = calcAverage(85,54,41);
+ const koalos = calcAverage(23,34,27);
+ checkWinner = (a,b)=> a>= (2*b) ? console.log("a wins") :  b>= (2*a) ? console.log("b wins") : console.log("no one wins") ;
+ checkWinner(dolphins, koalos);
 
-    Mark.calcBMI();
-    John.calcBMI();
-
-    if (Mark.BMI < John.BMI) {
-        console.log(`John's BMI (${John.BMI}) is higher than Mark's (${Mark.BMI})!`);
-    }
-    else {
-        console.log(`John's BMI (${John.BMI}) is lower than Mark's (${Mark.BMI})!`)
-    }
 
 
 </script>
