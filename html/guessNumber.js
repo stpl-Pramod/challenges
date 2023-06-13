@@ -1,7 +1,7 @@
 console.log("test");
 const randomNumber = Math.round(Math.random(100)*20);
 var score = 20;
-document.querySelector(".guess-success-number").innerHTML = randomNumber;
+
 
 console.log("random number " + randomNumber)
 console.log("score number " + score)
@@ -23,6 +23,7 @@ function checkNumFun(){
             document.querySelector(".guess-status-msg").style.color = "#1bad1b";
             score--;
             document.querySelector(".guess-score").innerHTML = score;
+            document.querySelector(".guess-success-number").innerHTML = randomNumber;
 
         }
         else if(guessnum > randomNumber){
