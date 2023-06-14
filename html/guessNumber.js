@@ -2,8 +2,10 @@ console.log("test");
 var randomNumber = Math.trunc(Math.random()*20)+1;
 
 var score = 20;
+var highscore = 0;
 document.querySelector(".guess-score").innerHTML = score;
 document.querySelector(".guess-status-msg").innerHTML = "Start Guessing";
+document.querySelector(".guess-high-score").innerHTML = highscore;
 
 console.log("random number " + randomNumber)
 console.log("score number " + score)
@@ -15,43 +17,55 @@ function checkNumFun(){
     //  while(guessnum === randomNumber){
     //      document.querySelector(".guess-score").innerHTML = "win";
     //  }
-
-        if(guessnum === randomNumber){
-            console.log("done");
-            document.querySelector(".bgLight").style.backgroundColor = "#55ff5512";
-            document.querySelector(".guess-status-msg").innerHTML = "Correct Number";
-            document.querySelector(".guess-status-msg").style.color = "#1bad1b";
+if(!guessnum){
+    console.log("number not entered");
+}else{
+    if(guessnum === randomNumber){
+        if(score > highscore){
+            highscore = score;
+            document.querySelector(".guess-high-score").innerHTML = highscore;
+        }
+        console.log("done");
+        document.querySelector(".bgLight").style.backgroundColor = "#55ff5512";
+        document.querySelector(".guess-status-msg").innerHTML = "Correct Number";
+        document.querySelector(".guess-status-msg").style.color = "#1bad1b";
+        // score--;
+        // document.querySelector(".guess-score").innerHTML = score;
+        document.querySelector(".guess-success-number").innerHTML = randomNumber;
+        
+    }
+    else if(guessnum > randomNumber){
+        if(score > 1){
+            debugger
+            console.log("guessed high");
+            document.querySelector(".bgLight").style.backgroundColor = "#ff555512";
+            document.querySelector(".guess-status-msg").innerHTML = "guessed high";
             score--;
             document.querySelector(".guess-score").innerHTML = score;
-            document.querySelector(".guess-success-number").innerHTML = randomNumber;
-
+        }else{
+            debugger
+            document.querySelector(".guess-status-msg").innerHTML = "You loss the game";
+            document.querySelector(".guess-score").innerHTML = '';
         }
-        else if(guessnum > randomNumber){
-            if(score>1){
-                console.log("guessed high");
-                document.querySelector(".bgLight").style.backgroundColor = "#ff555512";
-                document.querySelector(".guess-status-msg").innerHTML = "guessed high";
-                score--;
-                document.querySelector(".guess-score").innerHTML = score;
-            }else{
-                document.querySelector(".guess-status-msg").innerHTML = "You loss the game";
-                document.querySelector(".guess-score").innerHTML = '';
-            }
-            
+        
+    }
+    else{
+        if(score > 1){
+            debugger
+            console.log("guessed low");
+            document.querySelector(".bgLight").style.backgroundColor = "#ff555512";
+            document.querySelector(".guess-status-msg").innerHTML = "guessed low";
+            score--;
+            document.querySelector(".guess-score").innerHTML = score;
+        }else{
+            debugger
+            document.querySelector(".guess-status-msg").innerHTML = "You loss the game";
+            document.querySelector(".guess-score").innerHTML = '';
         }
-        else{
-            if(score>1){
-                console.log("guessed low");
-                document.querySelector(".bgLight").style.backgroundColor = "#ff555512";
-                document.querySelector(".guess-status-msg").innerHTML = "guessed low";
-                score--;
-                document.querySelector(".guess-score").innerHTML = score;
-            }else{
-                document.querySelector(".guess-status-msg").innerHTML = "You loss the game";
-                document.querySelector(".guess-score").innerHTML = '';
-            }
-           
-        }
+       
+    }
+}
+        
     
 }
 
