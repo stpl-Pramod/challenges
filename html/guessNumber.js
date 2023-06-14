@@ -70,6 +70,7 @@ if(!guessnum){
 }
 
 document.querySelector('.again-btn').addEventListener('click', function(){
+    score = 20;
     document.querySelector(".guess-input").value = ''
     document.querySelector(".guess-score").innerHTML = 20;
     document.querySelector(".guess-status-msg").innerHTML = "Start Guessing";
