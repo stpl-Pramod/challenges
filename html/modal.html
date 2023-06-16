@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>modal</title>
+    <style>
+        .modal1{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top:0;
+            background-color: #00000022;
+            display: none;
+            text-align: center;
+        }
+        .modalContent{
+            position: fixed;
+            width: 500px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-color: #ccc;
+            text-align: center;
+            padding: 5px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+    </style>
+   
+</head>
+
+<body>
+    <!-- <h1>Guess a Number</h1> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-5">
+                <button type="button" class="btn btn-primary" id="modalBtn">Modal</button>
+                <div class="modal1">
+                    <div class="modalContent">
+                        <button type="button" class="btn btn-danger" id="closeBtn">close</button>
+                        <p>lsjflskdj lskdjg sldghs dlkgj sldgjsl dkgjlskdgj </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+var btn = document.getElementById("modalBtn");
+var modal = document.querySelector(".modal1");
+var closebtn = document.getElementById("closeBtn");
+console.log(modal);
+btn.onclick = function(){
+    modal.style.display = "block";
+}
+closebtn.onclick = function(){
+    modal.style.display = "none";
+}
+window.onclick = function(event){
+    if(event.target == modal){
+        modal.style.display = "none";
+    }
+    console.log(event);
+    console.log(event.target);
+}
+   </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
